@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Câmera</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <img [src]="domSanitizer.bypassSecurityTrustUrl(cameraData)" *ngIf="photoTaken" />
+        <img [src]="domSanitizer.bypassSecurityTrustUrl(cameraUrl)" *ngIf="photoSelected" />
+        <ion-card-header>
+            Opções:
+        </ion-card-header>
+        <ion-card-content>
+            <button block icon-left ion-button (click)="openCamera()">
+                <ion-icon name="camera">  
+                </ion-icon>
+                Abrir Câmera
+            </button>
+            <button ion-button block icon-left (click)="selectFromGallery()">
+                <ion-icon name="image">
+                </ion-icon>
+                Selecionar da Galeria
+            </button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
